@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using FooBar.Clients;
+using FooBar.Models;
 
 namespace FooBar.Repositories
 {
     public interface IPodcastsRepository
     {
-        Task<string> GetAll();
+        Task<PodcastsResponse> GetAll();
     }
 
     public class PodcastsRepository : IPodcastsRepository
@@ -17,7 +18,7 @@ namespace FooBar.Repositories
             _podcastsClient = podcastsClient;
         }
 
-        public async Task<string> GetAll()
+        public async Task<PodcastsResponse> GetAll()
         {
             return await _podcastsClient.GetAll();
         }
